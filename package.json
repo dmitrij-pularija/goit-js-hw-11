@@ -1,0 +1,27 @@
+{
+  "name": "goit-js-hw-10",
+  "version": "1.0.0",
+  "description": "goit-js-hw-10",
+  "scripts": {
+    "dev": "parcel *.html",
+    "build": "parcel build *.html --public-url /goit-js-hw-10/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmitrij-pularija/goit-js-hw-10.git"
+  },
+  "keywords": [],
+  "author": "dmitrij-pularija",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmitrij-pularija/goit-js-hw-10/issues"
+  },
+  "homepage": "https://github.com/dmitrij-pularija/goit-js-hw-10#readme",
+  "devDependencies": {
+    "parcel": "^2.7.0"
+  },
+  "dependencies": {
+    "lodash.debounce": "^4.0.8",
+    "notiflix": "^3.2.5"
+  }
+}
