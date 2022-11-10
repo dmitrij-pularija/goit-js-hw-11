@@ -95,18 +95,20 @@ ul {
   justify-content: center;
   padding: 0;
   z-index: 2;
-  margin: -3px 0 0 18px;
+  margin: -3px 0 0 0;
   background-color: white;
   border-top: 1px solid #c0bcbca6;
 }
 
 .country-list__inem {
-  width: 400px;
+  width: 420px;
   display: flex;
   align-items: center;
   justify-content: start;
   padding: 5px 0;
+  cursor: pointer;
 }
+
 .country-list__inem:focus,
 .country-list__inem:hover {
   background-color: #c0bcbca6;
@@ -123,12 +125,12 @@ ul {
 }
 .info__box {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   column-gap: 20px;
 }
 .info__list {
-  margin: 5px 0 0 0;
+  margin: 0;
 }
 .info__item:not(:last-child) {
   margin-bottom: 5px;

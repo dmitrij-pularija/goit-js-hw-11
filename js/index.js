@@ -62,7 +62,7 @@ function countryInfo(contrys) {
   refs.info.innerHTML = `
   <h2>${contrys.name.official}</h2>
   <div class="info__box">
-  <img src="${contrys.flags.svg}" width="200" height="105"/>
+  <img src="${contrys.flags.svg}" height="100"/>
   <ul class="info__list">
   <li class="info__item">Capital: ${contrys.capital}</li>
   <li class="info__item">Area: ${(contrys.area / 1000).toFixed(
@@ -82,5 +82,6 @@ function restoreHtml() {
   refs.list.innerHTML = "";
 }
 
+refs.search.focus();
 refs.search.addEventListener("input", debounce(searchContry, DEBOUNCE_DELAY));
 refs.search.addEventListener("focus", restoreHtml);
