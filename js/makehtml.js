@@ -11,6 +11,8 @@ export function makehtml(
   show
 ) {
   let addStyle = "";
+  const iconHref = refs.menuIcon.getAttribute("href");
+  const iconRef = iconHref.slice(0, iconHref.indexOf("#") + 1);
   if (!show) {
     addStyle = " visually-hidden";
   }
@@ -28,22 +30,22 @@ export function makehtml(
   <div class="info">
     <p class="info-item">
     <svg width="15" height="15" class="likes__icon">
-    <use href="./img/icons.svg#heart"></use>
+    <use href="${iconRef}heart"></use>
   </svg><b>${likes}</b>
     </p>
     <p class="info-item">
     <svg width="18" height="18" class="views__icon">
-    <use href="./img/icons.svg#eye"></use>
+    <use href="${iconRef}eye"></use>
   </svg><b>${views}</b>
     </p>
     <p class="info-item">
     <svg width="15" height="15" class="comments__icon">
-    <use href="./img/icons.svg#chat"></use>
+    <use href="${iconRef}chat"></use>
   </svg><b>${comments}</b>
     </p>
     <p class="info-item">
     <svg width="15" height="15" class="downloads__icon">
-    <use href="./img/icons.svg#download"></use>
+    <use href="${iconRef}download"></use>
   </svg><b>${downloads}</b>
     </p>
   </div></a></div>`;
