@@ -1,3 +1,4 @@
+import { refs } from "./refs";
 export function makehtml(
   largeImageURL,
   webformatURL,
