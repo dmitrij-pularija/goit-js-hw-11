@@ -26,20 +26,18 @@ const lightbox = new SimpleLightbox(".photo-card .gallery__link", {
 });
 
 clearSerch();
+refs.input.focus();
 
 function clearSerch() {
   refs.gallery.innerHTML = "";
   currentPage = 0;
   totalPage = 0;
-  refs.input.value = "";
   imgs = [];
   refs.scrollIndicator.style.width = "0%";
   showButton(false);
   showCounter(false);
-  refs.formButton.style.display = "flex";
   refs.progressContainer.classList.remove("loading");
   lastSettitgs();
-  refs.input.focus();
 }
 
 function showButton(visible) {
@@ -84,11 +82,10 @@ function authorInf(visible) {
 }
 
 function searchImages() {
-  refs.input.blur();
+  clearSerch();
   refs.progressContainer.classList.add("loading");
-  const imageRequest = refs.input.value.trim();
-
-  if (!/^[A-z]+$/.test(imageRequest)) {
+  const imageRequest = refs.input.value.trimRight().trimLeft();
+  if (!/^[A-ZА-ЯЁЇІЄ\s]+$/i.test(imageRequest)) {
     messages("error");
     clearSerch();
     return;
@@ -134,20 +131,7 @@ function renderImageGalery(images) {
   changeCounter(currentPage, totalPage, total, images.total);
   showCounter(refs.loadInfo.checked);
   const markup = images.hits
-    .map((image) =>
-      makehtml(
-        image.largeImageURL,
-        image.webformatURL,
-        image.tags,
-        image.likes,
-        image.views,
-        image.comments,
-        image.downloads,
-        image.user,
-        image.userImageURL,
-        showAuthorInfo
-      )
-    )
+    .map((image) => makehtml(image, showAuthorInfo))
     .join("");
 
   refs.gallery.insertAdjacentHTML("beforeend", markup);
@@ -156,10 +140,8 @@ function renderImageGalery(images) {
 
 refs.search.addEventListener("submit", (event) => {
   event.preventDefault();
-  refs.formButton.style.display = "none";
   searchImages();
 });
-refs.input.addEventListener("focus", clearSerch);
 refs.menu.addEventListener("click", changeSettings);
 refs.loadMore.addEventListener("click", () => {
   renderImageGalery(imgs[currentPage - 1]);
